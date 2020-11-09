@@ -1,0 +1,26 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex="95%" fxFlex.md="60%" fxFlex.sm="50%" fxFlex.xs="95%" class="mat-elevation-z8">
+        <mat-card>
+            <mat-card-content>
+                <div fxFlex="50%" fxFlex.sm="95%" fxFlex.xs="950%">
+
+                    <h2>{{!form.get('id').value ? 'New' : 'Edit'}} Product</h2>
+                    
+                    <form [formGroup]="form">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Name" required formControlName="name">
+                            <mat-error *ngIf="form.get('name').hasError('required')">Name is required</mat-error>
+                            <mat-icon matSuffix>all_inbox</mat-icon>
+                        </mat-form-field>
+    
+                        <div class="text-right">
+                            <button type="button" mat-raised-button color="primary" style="margin-right: 10px;" (click)="saveProduct()" matTooltip="Click to Save Product">Save</button>
+                            <button type="button" mat-raised-button routerLink="/products" matTooltip="Click to Cancel">Cancel</button>
+                        </div>
+                    </form>
+
+                </div>             
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>        

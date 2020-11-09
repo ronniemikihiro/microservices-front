@@ -1,0 +1,31 @@
+<div class="login-page">
+    <div class="container login-container" fxLayout="row" fxLayoutAlign="center center">
+        <form [formGroup]="form" fxFlex="30%" fxFlex.sm="50%" fxFlex.xs="90%">
+            <mat-card>
+                <mat-card-title style="text-align:center;">Login</mat-card-title>
+                <mat-card-content>
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Email" formControlName="email" type="email" required>
+                        <mat-icon matSuffix>email</mat-icon>
+                        <mat-error *ngIf="form.get('email').hasError('email')">Please enter a valid email address</mat-error>
+                        <mat-error *ngIf="form.get('email').hasError('required')">Email is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Password" formControlName="password" type="password" required>
+                        <mat-icon matSuffix>lock</mat-icon>    
+                        <mat-error *ngIf="form.get('email').hasError('required')">Password is required</mat-error>
+                    </mat-form-field>
+                    <div class="full-width">
+                        <mat-slide-toggle formControlName="rememberMe">Remember my email address</mat-slide-toggle>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions class="login-actions">
+                    <button mat-raised-button id="login" color="primary" [disabled]="loading "class="enter-button" (click)="login()">
+                        Enter
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+            <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        </form>
+    </div>
+</div>

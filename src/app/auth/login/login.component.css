@@ -1,0 +1,29 @@
+
+.login-container {
+    height: 90vh;
+}
+  
+.login-actions {
+    margin-left: unset !important;
+}
+
+.login-page {
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    background-color: #303F9F;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.enter-button {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    margin: 20px auto;
+}
