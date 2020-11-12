@@ -51,7 +51,8 @@ export class UserListComponent extends AbstractComponent implements OnInit {
   confirmDialogDelete(user : User): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: new ConfirmDialogModel("Confirm", 'Delete this item?'),
-      maxWidth: "400px"
+      maxWidth: "400px",
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(dialogConfirm => {

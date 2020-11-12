@@ -52,7 +52,7 @@ export class ProductFormComponent extends AbstractComponent implements OnInit {
         this.messageService.error(errorResponse.error.message);
       })
     } catch (e) {
-      this.messageService.error(e.message);
+      this.messageService.notify(e);
     }
   }
 

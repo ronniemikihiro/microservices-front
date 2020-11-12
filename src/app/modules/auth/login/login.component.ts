@@ -33,7 +33,7 @@ export class LoginComponent extends AbstractComponent implements OnInit {
     }
 
     private createForm() {
-        const savedUserEmail = localStorage.getItem('savedUserEmail');
+        const savedUserEmail = this.authService.getUserEmail();
 
         this.form = new FormGroup({
             email: new FormControl(savedUserEmail, [Validators.required, Validators.email]),

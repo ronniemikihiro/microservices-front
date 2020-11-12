@@ -25,13 +25,13 @@
                     <mat-checkbox formControlName="rememberMe">Lembrar de mim</mat-checkbox>
                 </div>
                 <div class="div-esqueci-senha">
-                    <button type="button" mat-button (click)="clicked=true" class="link-esqueci-senha">Esqueci minha senha</button>
+                    <button type="button" mat-button [routerLink]="['/auth/redefine-password']" class="link-esqueci-senha">Esqueci minha senha</button>
                 </div>
                 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>   
             </mat-card>
         </div>
     </form>
-    <div class="text-edi-enterprise" [ngClass]="mobileQuery.matches ? 'text-edi-enterprise-mobile' : 'text-edi-enterprise-web'">
+    <div [ngClass]="mobileQuery.matches ? 'text-edi-enterprise-mobile' : 'text-edi-enterprise-web'">
         <strong>edi</strong>enterprise
     </div>
     <div class="text-informacao" *ngIf="!mobileQuery.matches">

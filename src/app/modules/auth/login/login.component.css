@@ -1,4 +1,3 @@
-
 .background-login-web {
     background-image: url(../../../../assets/images/background-login-web.png);
     height: 100vh;
@@ -54,6 +53,7 @@
 .div-checkbox-lembrar-mim {
     position: absolute;
     width: 100%;
+    font-weight: 100;
     margin-top: 5px;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .link-esqueci-senha {
-    font-weight: normal; 
+    font-weight: 100; 
     padding-right: 0;
 }
 
@@ -91,4 +91,8 @@
     font-size: 2vw;
     text-align: center;
     color: #FFFFFF;
+}
+
+mat-checkbox ::ng-deep .mat-checkbox-inner-container {
+    background-color: #FFFFFF;
 }

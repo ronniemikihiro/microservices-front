@@ -47,7 +47,8 @@ export class ProductListComponent implements OnInit {
   confirmDialogDelete(product : Product): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: new ConfirmDialogModel("Confirm", 'Delete this item?'),
-      maxWidth: "400px"
+      maxWidth: "400px",
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(dialogConfirm => {

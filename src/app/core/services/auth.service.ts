@@ -13,6 +13,7 @@ export class AuthService {
 
   private readonly ACCESS_TOKEN = 'ACCESS_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
+  private readonly USER_EMAIL = 'MICROSERVICES_USER_EMAIL';
 
   jwtPayload: any;
   tokenURL: string = environment.apiURLBase + environment.obterTokenUrl
@@ -53,13 +54,17 @@ export class AuthService {
     this.jwtPayload = null;
   }
 
+  getUserEmail() {
+    return localStorage.getItem(this.USER_EMAIL);
+  }
+
   saveUserEmail(email : string) {
     this.deleteUserEmail();
-    localStorage.setItem('microservices-user-email', email);
+    localStorage.setItem(this.USER_EMAIL, email);
   }
 
   deleteUserEmail() {
-    localStorage.removeItem('microservices-user-email');
+    localStorage.removeItem(this.USER_EMAIL);
   }
 
   isTokenExpired(): boolean {
