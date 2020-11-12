@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { InvalidEmailError } from '../error/invalid-email-error';
-import { RequiredPropertyError } from '../error/required-property-error';
+import { InvalidEmailError } from '../errors/invalid-email-error';
+import { RequiredPropertyError } from '../errors/required-property-error';
 
 @Injectable({
     providedIn: 'root'

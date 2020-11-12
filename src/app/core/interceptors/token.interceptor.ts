@@ -4,12 +4,14 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse
 import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
+import { MessageService } from '../services/message.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
   constructor(private authService: AuthService,
-              private router: Router) {}
+              private router: Router,
+              private messageService: MessageService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let access_token = this.authService.getToken();
@@ -26,10 +28,16 @@ export class TokenInterceptor implements HttpInterceptor {
           this.logout();
           throw errorRefreshToken;
         }));
-      } else if (error.error.error === 'invalid_grant') {
-        throw error;
-      } else {
+      } else  {
+        if (error.error.error === 'invalid_grant') {
+          this.messageService.warn('Invalid username or password!');
+        } else if (error.error.status === 500) {
+          this.messageService.error('Internal Server Error!');
+        } else if (error.error.status === 504) {
+          this.messageService.error('Timeout! Server not responding...');
+        }
         this.logout();
+        throw error;
       }
     }));
   }

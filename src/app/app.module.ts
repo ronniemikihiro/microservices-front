@@ -5,10 +5,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LoggerModule } from 'ngx-logger';
 import { environment } from '../environments/environment';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     CoreModule,
     SharedModule,
-    CustomMaterialModule.forRoot(),
+    MaterialModule.forRoot(),
     AppRoutingModule,
     LoggerModule.forRoot({
       serverLoggingUrl: `http://my-api/logs`,

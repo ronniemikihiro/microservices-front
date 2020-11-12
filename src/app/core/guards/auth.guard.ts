@@ -34,7 +34,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       });
           
     } else if (next.data.roles && !this.authService.hasAnyRole(next.data.roles)) {
-      this.router.navigate(['/unauthorized']);
+      this.router.navigate(['/auth/unauthorized']);
       return false; 
     }
     
@@ -43,7 +43,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
   canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (next.data.roles && !this.authService.hasAnyRole(next.data.roles)) {
-      this.router.navigate(['/unauthorized']);
+      this.router.navigate(['/auth/unauthorized']);
       return false; 
     }
 
