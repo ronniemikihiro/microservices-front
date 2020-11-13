@@ -95,4 +95,5 @@
 
 mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     background-color: #FFFFFF;
+    border-radius: 2px;
 }
