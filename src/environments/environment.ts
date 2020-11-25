@@ -9,7 +9,7 @@ export const environment = {
   production: false,
   logLevel: NgxLoggerLevel.TRACE,
   serverLogLevel: NgxLoggerLevel.OFF,
-  apiURLBase: 'http://localhost:8080/gateway',
+  apiURLBase: 'http://localhost:8080',
   clientId: 'esales',
   clientSecret: '@123',
   obterTokenUrl: '/auth/oauth/token'
